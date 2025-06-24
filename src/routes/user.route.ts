@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { UserController } from "../controllers/user.controller";
 import { userAuth } from "../middlewares/auth.middleware";
+import { singleFile } from "../utils/uploader";
 
 export default class UserRoute {
   public router: Router;
@@ -16,6 +17,10 @@ export default class UserRoute {
 
   private initializeRoutes() {
     // === GET ===
-    this.router.get("/", userAuth, this.userController.getUsers); // -> /users
+    this.router.get(
+      "/",
+      singleFile("TEST", "/test"),
+      this.userController.getUsers
+    ); // -> /users
   }
 }

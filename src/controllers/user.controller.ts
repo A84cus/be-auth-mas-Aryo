@@ -4,7 +4,7 @@ import prisma from "../prisma";
 export class UserController {
   async getUsers(req: Request, res: Response, next: NextFunction) {
     try {
-      console.log(req.user);
+      console.log("File", req.file);
 
       const users = await prisma.user.findMany();
 

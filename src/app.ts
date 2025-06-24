@@ -34,6 +34,7 @@ export default class App {
      * extended: true -> using qs instead of querystring to parse data, to allow parsing nested objects and arrays
     */
     this.app.use(urlencoded({ extended: true }));
+    this.app.use(express.static("public"));
   }
 
   private initializeRoutes(): void {
