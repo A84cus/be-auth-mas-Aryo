@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { UserController } from "../controllers/user.controller";
 import { userAuth } from "../middlewares/auth.middleware";
-import { singleFile } from "../utils/uploader";
+import { memoryUploader, multipleFileDiffField } from "../utils/uploader";
 
 export default class UserRoute {
   public router: Router;
@@ -19,7 +19,7 @@ export default class UserRoute {
     // === GET ===
     this.router.get(
       "/",
-      singleFile("TEST", "/test"),
+      memoryUploader().single("file"),
       this.userController.getUsers
     ); // -> /users
   }

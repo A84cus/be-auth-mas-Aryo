@@ -17,7 +17,7 @@ const emailer = async (options: IEmailer) => {
       service: "gmail",
       auth: {
         user: "gangsar.purwadhika@gmail.com",
-        pass: "nxhm muji lind mvqt",
+        pass: "inhs qmno ofdq ztym",
       },
       logger: true,
     });
