@@ -4,6 +4,7 @@ import { errorMiddleware } from "./middlewares/error.middleware";
 import AuthRoute from "./routes/auth.route";
 import UserRoute from "./routes/user.route";
 import UserImageRoute from "./routes/userImage.route";
+import { errorHandler } from "./middlewares/errorHandler.middleware";
 
 const PORT = 8001;
 
@@ -49,7 +50,8 @@ export default class App {
   }
 
   private initializeErrorHandling() {
-    this.app.use(errorMiddleware);
+    // this.app.use(errorMiddleware);
+    this.app.use(errorHandler);
   }
 
   public start(): void {

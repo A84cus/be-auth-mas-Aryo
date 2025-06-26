@@ -7,17 +7,18 @@ interface IEmailer {
   subject: string;
   pathToHtml: string;
   replacements?: Record<string, any>;
+  attachments?: any;
 }
 
 const emailer = async (options: IEmailer) => {
-  const { to, subject, pathToHtml, replacements } = options;
+  const { to, subject, pathToHtml, replacements, attachments } = options;
 
   try {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
         user: "gangsar.purwadhika@gmail.com",
-        pass: "inhs qmno ofdq ztym",
+        pass: "mleu rwwc igdg cohg",
       },
       logger: true,
     });
@@ -36,6 +37,7 @@ const emailer = async (options: IEmailer) => {
       to,
       html,
       subject,
+      attachments,
     };
 
     await transporter.sendMail(message);

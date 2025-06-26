@@ -19,7 +19,8 @@ export default class UserRoute {
     // === GET ===
     this.router.get(
       "/",
-      memoryUploader().single("file"),
+      // userAuth,
+      // memoryUploader().single("file"),
       this.userController.getUsers
     ); // -> /users
   }
